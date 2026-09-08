@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static int Main()
+    {
+        const string PIN = "1234"; // PIN jako string
+        const int MaxPokusy = 5;
+
+        for (int i = 0; i < MaxPokusy; i++)
+        {
+            Console.Write("Zadej PIN k trezoru: ");
+            string zadany = Console.ReadLine()?.Trim() ?? "";
+
+            if (zadany == PIN)
+            {
+                Console.WriteLine("Trezor je otevřený");
+                return 0; // úspěch
+            }
+            else
+            {
+                Console.WriteLine("Špatně zadaný PIN kód");
+            }
+        }
+
+        Console.WriteLine("Trezor blokován, limit nesprávných kódů překročen");
+        return 1; // neúspěch
+    }
+}
